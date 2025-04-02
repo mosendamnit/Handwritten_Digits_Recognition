@@ -11,7 +11,7 @@ digit_model = tf.keras.models.load_model('digit_model.keras')
 symbol_model = tf.keras.models.load_model('symbol_model.h5')
 
 # Class names for symbols
-symbol_class_names = ['+', '-', '*', '/']
+symbol_class_names = ['+', '-', 'X', '÷']
 
 # Streamlit UI setup
 st.set_page_config(page_title="Handwritten Digit & Symbol Recognition", layout="wide")
@@ -65,9 +65,9 @@ def perform_calculation(digit1, symbol, digit2):
         return digit1 + digit2
     elif symbol == '-':
         return digit1 - digit2
-    elif symbol == '*':
+    elif symbol == 'X':
         return digit1 * digit2
-    elif symbol == '/':
+    elif symbol == '÷':
         return digit1 / digit2
     else:
         raise ValueError(f"Unknown symbol: {symbol}")
